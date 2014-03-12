@@ -52,6 +52,7 @@ Set url to add documentation from that location to the view.
 
     <div id="docs" flex on-marked-js-highlight="{{hilight}}" on-scroll="{{docsScroll}}">
       <div id="docsInner" flex>
+
         <div id="fixed">
           <div class="header">
 
@@ -242,7 +243,7 @@ Set url to add documentation from that location to the view.
       assimilateData: function(data) {
         this.classes = this.classes.concat(data.classes);
         this.classes.sort(function(a, b) {
-          var na = a.name, nb = b.name;
+          var na = a.name.toLowerCase(), nb = b.name.toLowerCase();
           return (na < nb) ? -1 : (na == nb) ? 0 : 1;
         });
       }
