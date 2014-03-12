@@ -3,6 +3,7 @@
   "private": true,
   "dependencies": {
     "polymer": "Polymer/polymer#master",
+    "core-ajax": "Polymer/core-ajax#master",
     "polymer-flex-layout": "Polymer/polymer-flex-layout#master",
     "polymer-grid-layout": "Polymer/polymer-grid-layout#master",
     "polymer-ui-menu": "Polymer/polymer-ui-menu#master",
