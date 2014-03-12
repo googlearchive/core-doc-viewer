@@ -9,6 +9,7 @@
     "polymer-ui-menu-item": "Polymer/polymer-ui-menu-item#master",
     "polymer-ui-submenu-item": "Polymer/polymer-ui-submenu-item#master",
     "polymer-ui-toolbar": "Polymer/polymer-ui-toolbar#master",
-    "polymer-ui-icon-button": "Polymer/polymer-ui-icon-button#master"
+    "polymer-ui-icon-button": "Polymer/polymer-ui-icon-button#master",
+    "marked-js": "Polymer/marked-js#master"
   }
 }
