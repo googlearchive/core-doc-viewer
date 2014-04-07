@@ -10,7 +10,7 @@
     "core-toolbar": "Polymer/core-toolbar#master",
     "core-icon-button": "Polymer/core-icon-button#master",
     "core-header-panel": "Polymer/core-header-panel#master",
-    "marked-element": "Polymer/marked-element#master",
-    "highlightjs-element": "Polymer/highlightjs-element#master"
+    "marked-element": "PolymerLabs/marked-element#master",
+    "highlightjs-element": "PolymerLabs/highlightjs-element#master"
   }
 }
