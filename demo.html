@@ -4,37 +4,31 @@
 
   <title>core-doc-viewer</title>
 
-  <style>
-    html, body {
-      font-family: sans-serif;
-      white-space: nowrap;
-      overflow: hidden;
-    }
-  </style>
-
   <script src="../platform/platform.js"></script>
 
   <link rel="import" href="core-doc-viewer.html">
 
+  <style>
+
+    html, body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
+
+    core-doc-viewer {
+      height: 100vh;
+    }
+
+  </style>
+
 </head>
+
 <body unresolved>
 
-  <input style="width: 80%; padding: 12px;" value="/bowertopia/php/git-proxy.php?sjmiles/webaudio-knob/webaudio-knob.html"><button onclick="go()">Go</button>
-
-  <core-doc-viewer style="position: absolute; top: 64px; left: 0; right: 0; bottom: 0;"></core-doc-viewer>
-
-  <script>
-    document.querySelector('core-doc-viewer').sources = [
-      '../core-ajax/core-ajax.html', 
-      //'../polymer-collapse/polymer-collapse.html',
-      //'../polymer-overlay/polymer-overlay.html',
-      'core-doc-viewer.html'
-    ];
-    function go() {
-      var value = document.querySelector('input').value;
-      document.querySelector('core-doc-viewer').url = value;
-    }
-  </script>
+  <core-doc-viewer sources='[
+    "../core-ajax/core-ajax.html"
+  ]'></core-doc-viewer>
 
 </body>
+
 </html>

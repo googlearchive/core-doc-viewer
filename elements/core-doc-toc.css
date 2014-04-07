@@ -1,0 +1,13 @@
+:host {
+  display: block;
+  border-right: 1px solid silver;
+}
+
+core-header-panel {
+  height: 100%;
+}
+
+core-toolbar {
+  background-color: #E91E63;
+  color: white;
+}
