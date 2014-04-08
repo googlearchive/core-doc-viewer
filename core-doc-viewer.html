@@ -8,7 +8,7 @@ Displays formatted source documentation scraped from input urls.
 @class core-doc-viewer
 -->
 
-<polymer-element name="core-doc-viewer" attributes="sources route">
+<polymer-element name="core-doc-viewer" attributes="sources route url">
 
   <template>
 
@@ -25,6 +25,8 @@ Displays formatted source documentation scraped from input urls.
         height: 100%;
       }
     </style>
+
+    <context-free-parser url="{{url}}" on-data-ready="{{parserDataReady}}"></context-free-parser>
 
     <template repeat="{{sources}}">
       <context-free-parser url="{{}}" on-data-ready="{{parserDataReady}}"></context-free-parser>
