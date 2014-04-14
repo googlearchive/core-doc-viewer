@@ -69,11 +69,6 @@ pre code {
 
 /**/
 
-core-toolbar {
-  background-color: #E91E63;
-  color: white;
-}
-
 .details-name {
   display: inline-block; 
   vertical-align: top;

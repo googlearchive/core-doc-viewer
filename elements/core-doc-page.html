@@ -31,15 +31,19 @@ Set url to add documentation from that location to the view.
 
     <core-header-panel style="height: 100%;" mode="waterfall">
 
-      <core-toolbar>
+      <!--<core-toolbar>
         <span style="margin: 0 72px;">{{data.name}}</span>
-      </core-toolbar>
+      </core-toolbar>-->
 
       <div class="main" on-marked-js-highlight="{{hilight}}">
 
         <h1 style="font-size: 52px; color: #E91E63;">
           {{data.name}}
         </h1>
+
+        <p>
+          <core-icon icon="tag" style="vertical-align: middle;"></core-icon>&nbsp;<a href="{{data | homepageFilter}}">Home Page</a>
+        </p>
 
         <template if="{{data.description}}">
           <section class="box top">
@@ -109,6 +113,17 @@ Set url to add documentation from that location to the view.
 
       hilight: function(event, detail, sender) {
         detail.code = hljs.highlightAuto(detail.code).value;
+      },
+
+      homepageFilter: function(data) {
+        if (!data) {
+          return '';
+        }
+        if (!data.homepage || data.homepage === 'github.io') {
+          return '//polymer.github.io/' + data.name;
+        } else {
+          return data.homepage;
+        }
       }
 
     });

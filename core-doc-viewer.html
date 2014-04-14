@@ -13,17 +13,21 @@ Displays formatted source documentation scraped from input urls.
   <template>
 
     <style>
+
       :host {
         display: block;
         position: relative;
       }
+
       core-doc-toc {
         width: 332px;
         overflow-x: hidden;
       }
+
       core-doc-page {
         height: 100%;
       }
+
     </style>
 
     <context-free-parser url="{{url}}" on-data-ready="{{parserDataReady}}"></context-free-parser>
