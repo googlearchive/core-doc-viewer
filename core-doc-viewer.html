@@ -20,6 +20,7 @@ Displays formatted source documentation scraped from input urls.
       }
 
       core-doc-toc {
+        display: none;
         width: 332px;
         overflow-x: hidden;
       }
@@ -37,7 +38,7 @@ Displays formatted source documentation scraped from input urls.
     </template>
 
     <core-layout core-fit>
-      <core-doc-toc data="{{classes}}" selected="{{selected}}"></core-doc-toc>
+      <core-doc-toc id="toc" data="{{classes}}" selected="{{selected}}"></core-doc-toc>
       <core-doc-page core-flex data="{{data}}"></core-doc-page>
     </core-layout>
 
@@ -91,6 +92,9 @@ Displays formatted source documentation scraped from input urls.
         });
         if (!this.data && !this.route && this.classes.length) {
           this.data = this.classes[0];
+        }
+        if (this.classes.length > 1) {
+          this.$.toc.style.display = 'block';
         }
         this.validateRoute();
       }
