@@ -25,10 +25,6 @@ Displays formatted source documentation scraped from input urls.
         overflow-x: hidden;
       }
 
-      core-doc-page {
-        height: 100%;
-      }
-
     </style>
 
     <context-free-parser url="{{url}}" on-data-ready="{{parserDataReady}}"></context-free-parser>
@@ -37,7 +33,7 @@ Displays formatted source documentation scraped from input urls.
       <context-free-parser url="{{}}" on-data-ready="{{parserDataReady}}"></context-free-parser>
     </template>
 
-    <core-layout core-fit>
+    <core-layout core-flex>
       <core-doc-toc id="toc" data="{{classes}}" selected="{{selected}}"></core-doc-toc>
       <core-doc-page core-flex data="{{data}}"></core-doc-page>
     </core-layout>
