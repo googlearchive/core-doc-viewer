@@ -69,6 +69,23 @@ Set url to add documentation from that location to the view.
           </section>
         </template>
 
+        <template if="{{data.properties.length}}">
+          <section class="box property-box">
+            <div class="ntitle" style="background-color: #4285F4; color: white;">Properties</div>
+            <template repeat="{{data.properties}}">
+              <div class="details">
+                <div class="details-name">
+                  <p><code>{{name}}</code></p>
+                </div>
+                <div class="details-info">
+                  <p><code>{{type}}</code></p>
+                  <marked-element text="{{description}}"></marked-element>
+                </div>
+              </div>
+            </template>
+          </section>
+        </template>
+
         <template if="{{data.events.length}}">
           <section class="box event-box">
             <div class="ntitle" style="color: white;">Events</div>
