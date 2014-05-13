@@ -112,6 +112,25 @@ pre code {
   font-size: 1.2em;
 }
 
+.property-box .ntitle {
+  padding: 24px 16px;
+}
+
+.property-box code {
+  color: #4285F4;
+  border: none;
+  background-color: transparent;
+  border-radius: none;
+  padding: 0;
+  font-size: 1.2em;
+}
+
+.property-box .details {
+  background-color: lightblue;
+  padding: 8px 16px;
+  border-bottom: 1px solid #D1CCA1;
+}
+
 .method-box {
 }
 
@@ -157,5 +176,4 @@ pre code {
   padding: 0;
   font-size: 1.2em;
 }
-
 
