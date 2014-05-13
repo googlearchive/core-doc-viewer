@@ -33,7 +33,7 @@ Displays formatted source documentation scraped from input urls.
       <context-free-parser url="{{}}" on-data-ready="{{parserDataReady}}"></context-free-parser>
     </template>
 
-    <core-layout core-flex>
+    <core-layout core-flex class="core-fit">
       <core-doc-toc id="toc" data="{{classes}}" selected="{{selected}}"></core-doc-toc>
       <core-doc-page core-flex data="{{data}}"></core-doc-page>
     </core-layout>

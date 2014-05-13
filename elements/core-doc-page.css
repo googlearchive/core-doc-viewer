@@ -1,9 +1,14 @@
 :host {
   display: block;
+  position: relative;
 }
 
 #panel {
+  position: absolute;
+  top: 0;
+  left: 0;
   height: 100%;
+  width: 100%;
 }
 
 .main {
@@ -171,5 +176,4 @@ pre code {
   padding: 0;
   font-size: 1.2em;
 }
-
 
