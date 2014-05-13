@@ -8,6 +8,7 @@
     "core-menu": "Polymer/core-menu#master",
     "core-item": "Polymer/core-item#master",
     "core-toolbar": "Polymer/core-toolbar#master",
+    "core-icons": "Polymer/core-icons#master",
     "core-icon-button": "Polymer/core-icon-button#master",
     "core-header-panel": "Polymer/core-header-panel#master",
     "marked-element": "PolymerLabs/marked-element#master",
