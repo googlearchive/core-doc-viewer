@@ -51,6 +51,8 @@ h1 {
 
 .ntitle {
   font-size: 26px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid whitesmoke;
 }
 
 .box {
