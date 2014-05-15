@@ -81,15 +81,16 @@ pre code {
 
 /**/
 
+.details {
+  display: flex;
+}
+
 .details-name {
-  display: inline-block; 
-  vertical-align: top;
-  width: 190px;
+  flex: 1;
 }
 
 .details-info {
-  display: inline-block;
-  max-width: 540px;
+  flex: 2;
 }
 
 .attribute-box {
