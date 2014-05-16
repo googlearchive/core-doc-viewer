@@ -11,7 +11,7 @@
 
 Displays formatted source documentation scraped from input urls.
 
-@class core-doc-page
+@element core-doc-page
 -->
 
 <polymer-element name="core-doc-page" attributes="data">
@@ -46,14 +46,14 @@ Set url to add documentation from that location to the view.
         </p>
 
         <template if="{{data.extends}}">
-          <section class="">
+          <section class="box">
             <div class="ntitle">Extends</div>
             <p><a href="#{{data.extends}}">{{data.extends}}</a></p>
           </section>
         </template>
 
         <template if="{{data.description}}">
-          <section class="">
+          <section class="box top">
             <div class="ntitle">Summary</div>
             <marked-element text="{{data.description}}"></marked-element>
           </section>
