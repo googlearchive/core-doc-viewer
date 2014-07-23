@@ -12,6 +12,6 @@
     "core-header-panel": "Polymer/core-header-panel#master",
     "context-free-parser": "Polymer/context-free-parser#master",
     "marked-element": "PolymerLabs/marked-element#master",
-    "prettify-element": "PolymerLabs/prettify-element#master"
+    "prettify-element": "Polymer/prettify-element#master"
   }
 }
