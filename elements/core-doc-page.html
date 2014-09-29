@@ -107,7 +107,7 @@ Displays formatted source documentation scraped from input urls.
                     <div class="params">
                       <p>Event details:</p>
                       <template repeat="{{param in event.params}}">
-                        <p><code>{{param.name}}</code><span> <code>( {{param.type}} )</code></span></p>
+                        <p><code>&lt;<em>{{param.type}}</em>&gt; {{param.name}}</code></p>
                         <p><span>{{param.description}}</span></p>
                       </template>
                     </div>
@@ -132,7 +132,7 @@ Displays formatted source documentation scraped from input urls.
                     <div class="params">
                       <p>Method parameters:</p>
                       <template repeat="{{param in method.params}}">
-                        <p><code>{{param.name}}</code><span> <code>( {{param.type}} )</code></span></p>
+                        <p><code>&lt;<em>{{param.type}}</em>&gt; {{param.name}}</code></p>
                         <p><span>{{param.description}}</span></p>
                       </template>
                     </div>
