@@ -61,11 +61,11 @@ Displays formatted source documentation scraped from input urls.
             <template repeat="{{attribute in data.attributes}}">
               <div class="details" horizontal layout>
                 <div class="details-name" flex id="{{data.name}}.attributes.{{attribute.name}}">
-                  <p><code>{{attribute.name}}</code></p>
+                  <p><code>&lt;<em>{{attribute.type}}</em>&gt; {{attribute.name}}</code></p>
                 </div>
                 <div class="details-info" flex three>
-                  <p layout horizontal center justified>
-                    <code>{{attribute.type}}</code><span class="default" hidden?="{{!attribute.default}}">default: <code>{{attribute.default}}</code></span>
+                  <p layout horizontal center justified hidden?="{{!attribute.default}}">
+                    <span class="default">default: <code>{{attribute.default}}</code></span>
                   </p>
                   <marked-element text="{{attribute.description}}"></marked-element>
                 </div>
@@ -80,11 +80,11 @@ Displays formatted source documentation scraped from input urls.
             <template repeat="{{property in data.properties}}">
               <div class="details" horizontal layout>
                 <div class="details-name" flex id="{{data.name}}.properties.{{property.name}}">
-                  <p><code>{{property.name}}</code></p>
+                  <p><code>&lt;<em>{{property.type}}</em>&gt; {{property.name}}</code></p>
                 </div>
                 <div class="details-info" flex three>
-                  <p layout horizontal center justified>
-                    <code>{{property.type}}</code><span class="default" hidden?="{{!property.default}}">default: <code>{{property.default}}</code></span>
+                  <p layout horizontal center justified hidden?="{{!property.default}}">
+                    <span class="default">default: <code>{{property.default}}</code></span>
                   </p>
                   <marked-element text="{{property.description}}"></marked-element>
                 </div>
