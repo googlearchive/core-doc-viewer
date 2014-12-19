@@ -207,6 +207,11 @@ Displays formatted source documentation scraped from input urls.
           if (elementToFocus) {
             elementToFocus.scrollIntoView();
           }
+          else {
+            var viewer = this.$.panel.scroller;
+            viewer.scrollTop = 0;
+            viewer.scrollLeft = 0;
+          }
         });
       }
 
