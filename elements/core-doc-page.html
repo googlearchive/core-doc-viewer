@@ -208,7 +208,7 @@ Displays formatted source documentation scraped from input urls.
             elementToFocus.scrollIntoView();
           }
           else {
-            var viewer = this.shadowRoot.querySelector('core-header-panel').shadowRoot.querySelector('#mainContainer');
+            var viewer = this.$.panel.scroller;
             viewer.scrollTop = 0;
             viewer.scrollLeft = 0;
           }
