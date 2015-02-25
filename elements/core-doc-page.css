@@ -51,7 +51,7 @@ h3 {
 .box:not(.top) .details .params {
   margin-top: 40px;
 }
-.params > p:first-child{
+.params > p:first-child {
   text-decoration: underline;
 }
 
