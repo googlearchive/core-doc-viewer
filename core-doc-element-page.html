@@ -11,33 +11,34 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../paper-styles/paper-styles.html">
 <link rel="import" href="../mark-down/mark-down.html">
 
-<!--
-Renders documentation describing an element's API.
+<link rel="import" href="doc-summary.html">
 
-`core-doc-element-page` renders element descriptions as extracted by
-[Hydrolysis](https://github.com/PolymerLabs/hydrolysis). You can provide them
-either via binding (the {@link #descriptor} attribute)...
-
-    <core-doc-page descriptor="{{elementDescriptor}}"></core-doc-page>
-
-...or by placing the element descriptor in JSON as the text content of a
-`core-doc-page`:
-
-    <core-doc-page>
-      {
-        "is": "awesome-sauce",
-        "properties": [
-          {"name": "isAwesome", "type": "boolean", "desc": "Is it awesome?"},
-        ]
-      }
-    </core-doc-page>
-
-However, be aware that due to current limitations in Polymer 0.8, _changes_ to
-the text content will not be respected, only the initial value will be loaded.
-If you wish to update the documented element, please set it via the `descriptor`
-property.
--->
 <dom-module id="core-doc-element-page">
+
+  <template is="doc-summary">
+    `core-doc-element-page` renders element descriptions as extracted by
+    [Hydrolysis](https://github.com/PolymerLabs/hydrolysis). You can provide
+    them either via binding (the `descriptor` attribute)...
+
+        <core-doc-page descriptor="{{elementDescriptor}}"></core-doc-page>
+
+    ...or by placing the element descriptor in JSON as the text content of a
+    `core-doc-page`:
+
+        <core-doc-page>
+          {
+            "is": "awesome-sauce",
+            "properties": [
+              {"name": "isAwesome", "type": "boolean", "desc": "Is it awesome?"},
+            ]
+          }
+        </core-doc-page>
+
+    However, be aware that due to current limitations in Polymer 0.8, _changes_
+    to the text content will not be respected, only the initial value will be
+    loaded. If you wish to update the documented element, please set it via the
+    `descriptor` property.
+  </template>
 
   <link rel="stylesheet" href="core-doc-element-page.css">
 
@@ -45,7 +46,8 @@ property.
 
     <header paper-font="display2">&lt;<span>{{_model.is}}</span>&gt;</header>
 
-    <section id="summary">
+    <section id="summary" paper-font="body2">
+      <mark-down class="desc" text="{{_model.desc}}"></mark-down>
     </section>
 
     <section id="properties">
@@ -145,7 +147,7 @@ property.
 
       for (var i = 0, property; property = this.descriptor.properties[i]; i++) {
         // TODO(nevir): Make this an option?
-        if (property.private) continue;
+        if (property.private || property.name[0] === '_') continue;
         if (property.type === 'Function') {
           methods.push(this._propertyForTemplate(property));
         } else {
@@ -155,13 +157,13 @@ property.
 
       this._model = {
         is:         this.descriptor.is,
+        desc:       this.descriptor.desc,
         properties: properties,
         methods:    methods,
       };
     },
 
     _propertyForTemplate: function(property) {
-      console.log(property);
       var jsdoc = property.jsdoc || {};
       return {
         name: property.name,

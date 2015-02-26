@@ -63,30 +63,21 @@ analyze its source and render docs based on that. No offline processing needed.
      *     extracted from.
      */
     _processSource: function(source) {
-      this.element = this._hydrolize(source);
+      this.element = this._hydrolizeElement(source);
+      console.log(this.element);
       this.$.page.classList.toggle('active', !!this.element);
     },
 
     /**
-     * TODO(nevir): Much of this function should be a helper in Hydrolysis.
-     *
      * @param {string} source The HTML source to be analyzed by Hydrolysis.
      * @return {Object} The element defined by that source, or `null`.
      */
-    _hydrolize: function(source) {
+    _hydrolizeElement: function(source) {
       // TODO(nevir): Hydrolysis should expose itself; not browserify's
       // `require`. We don't want to stomp over the user's `require`.
       var hydrolysis = require('hydrolysis');
-      var parsed = hydrolysis.importParse(source);
-      for (var i = 0, script; script = parsed.script[i]; i++) {
-        if (script.childNodes.length !== 1) continue;
-        var parsedJs = hydrolysis.jsParse(script.childNodes[0].value);
-        if (parsedJs.elements.length > 0) {
-          return hydrolysis.jsdoc.annotate(parsedJs.elements[0]);
-        }
-      }
-
-      return null;
+      var parsed = hydrolysis.hydrolyze(source);
+      return hydrolysis.jsdoc.annotate(parsed.elements[0]);
     },
 
   });
