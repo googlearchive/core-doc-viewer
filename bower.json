@@ -17,7 +17,7 @@
   "ignore": [
     "/.*",
     "/tests/",
-    "/demo/",
+    "/demo/"
   ],
   "dependencies": {
     "hydrolysis": "PolymerLabs/hydrolysis",
