@@ -77,7 +77,7 @@ analyze its source and render docs based on that. No offline processing needed.
       // `require`. We don't want to stomp over the user's `require`.
       var hydrolysis = require('hydrolysis');
       var parsed = hydrolysis.hydrolyze(source);
-      return hydrolysis.jsdoc.annotate(parsed.elements[0]);
+      return hydrolysis.docs.annotateElement(parsed.elements[0]);
     },
 
   });
