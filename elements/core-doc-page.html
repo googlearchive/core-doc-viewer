@@ -168,6 +168,13 @@ Displays formatted source documentation scraped from input urls.
                       </template>
                     </div>
                   </template>
+                  <template if="{{method.return}}">
+                    <div class="params">
+                      <p>Returns:</p>
+                      <p><code>&lt;<em>{{method.return.type}}</em>&gt;</code></p>
+                      <p><span>{{method.return.description}}</span></p>
+                    </div>
+                  </template>
                 </div>
               </div>
             </template>
