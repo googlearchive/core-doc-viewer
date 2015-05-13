@@ -27,7 +27,7 @@ Markdown format is supported.
 
 ### Links
 
-Arbitrary links can be encoded using [standard markdown format](http://daringfireball.net/projects/markdown/syntax). 
+Arbitrary links can be encoded using [standard markdown format](http://daringfireball.net/projects/markdown/syntax).
 [GitHub Flavored Markdown](https://help.github.com/articles/github-flavored-markdown) is also supported.
 
 Links to other topics can be made with hash-links [core-doc-viewer](#core-doc-viewer).
@@ -37,9 +37,9 @@ Links to other topics can be made with hash-links [core-doc-viewer](#core-doc-vi
 Example
 
     Four space indents indicate code blocks.
-    
+
     <code>blocks are syntax highlighted</code>
-    
+
     <script>
       while(true) {
         javascript('is highlighted also');
@@ -49,15 +49,15 @@ Example
 ### Blockquote
 
  > Blockquote is supported for long text that needs to wrap with a common left side indent.
- > Blockquote is supported for long text that needs to wrap with a common left side indent.  
+ > Blockquote is supported for long text that needs to wrap with a common left side indent.
 
 ### Lists
- 
+
 1.  enumerated
 1.  lists
- 
+
 Use - or + for bullet points:
- 
+
 - bullet
 - lists
 
@@ -78,7 +78,7 @@ Arbitrary HTML is also supported
 @homepage github.io
 -->
 
-<polymer-element name="core-doc-viewer" attributes="sources route url" horizontal layout>
+<polymer-element name="core-doc-viewer" attributes="merge route sources url" horizontal layout>
 
   <template>
 
@@ -132,6 +132,15 @@ Arbitrary HTML is also supported
        */
       sources: [],
 
+      /**
+       * Merge classes with the same names
+       *
+       * @property merge
+       * @type Boolean
+       * @default false
+       */
+      merge: false,
+
       ready: function() {
         window.addEventListener('hashchange', this.parseLocationHash.bind(this));
         this.parseLocationHash();
@@ -163,7 +172,7 @@ Arbitrary HTML is also supported
         }
       },
 
-      selectedChanged: function() { 
+      selectedChanged: function() {
         this.data = this.classes[this.selected];
       },
 
@@ -212,6 +221,11 @@ Arbitrary HTML is also supported
           var na = a && a.name.toLowerCase(), nb = b && b.name.toLowerCase();
           return (na < nb) ? -1 : (na == nb) ? 0 : 1;
         });
+
+        if (this.merge) {
+          this.mergeClasses();
+        }
+
         if (!this.data && !this.route && this.classes.length) {
           this.data = this.classes[0];
         }
@@ -219,6 +233,27 @@ Arbitrary HTML is also supported
           this.$.toc.style.display = 'block';
         }
         this.validateRoute();
+      },
+
+      mergeClasses: function() {
+        var set = {};
+
+        this.classes = this.classes.reduce(function(array, klass) {
+          var current = set[klass.name], key;
+
+          if (!current) {
+            array.push(set[klass.name] = klass);
+          }
+          else {
+            for (key in klass) {
+              if (klass.hasOwnProperty(key) && !current[key]) {
+                current[key] = klass[key];
+              }
+            }
+          }
+
+          return array;
+        }, []);
       }
 
     });
